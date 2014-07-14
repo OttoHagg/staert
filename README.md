@@ -1,6 +1,6 @@
 staert
 ======
-STAERT is a lightweight, cross-browser, self-hosted "start page" solution in the spirit of _MyFav.es_ or _Symbaloo_.
+STAERT is a lightweight, cross-browser, self-hosted "start page" solution in the spirit of [MyFav.es](https://www.myfav.es/) or [Symbaloo](http://www.symbaloo.com/).
 
 ![STAERT Screenshot](http://i1366.photobucket.com/albums/r778/sugonaut/Screenshots/staert2_zpse659bb30.png)
 
@@ -19,7 +19,7 @@ Set your customized index.html file to be your homepage in your browser.
 Upload your customized STAERT files to your web host and set index.html to be your homepage.
 
 ### Dropbox Installation
-This is the way I use STAERT, and it assumes you've installed Dropbox. Simply move your STAERT install to your dropbox folder and follow the instructions for "Local Installation". Whenever you add/remove favorites the changes are sync'd across all your devices.
+This is the way I use STAERT, and it assumes you've installed [Dropbox](https://www.dropbox.com/). Simply move your STAERT install to your dropbox folder and follow the instructions for "Local Installation". Whenever you add/remove favorites the changes are sync'd across all your devices.
 
 Tips
 ----
@@ -27,5 +27,5 @@ Tips
 
 Credits
 -------
-* STAERT is loosely inspired by [launchbot](http://launchbot.michaelxander.com/) and borrows a little code.
+* STAERT is loosely inspired by [Launchbot](http://launchbot.michaelxander.com/) and borrows a little code.
 * STAERT is responsive thanks to [Bootstrap](http://getbootstrap.com).
