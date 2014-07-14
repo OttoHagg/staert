@@ -10,7 +10,7 @@ I wanted to create a very simple browser start page that was always in sync, acr
 
 Installation
 ------------
-Download and extract STAERT to some local directory. Using your favorite text editor, open index.html and edit the "favorites" JavaScript array.
+[Download](https://github.com/OttoHagg/staert/archive/master.zip) and extract STAERT to some local directory. Using your favorite text editor, open index.html and edit the "favorites" JavaScript array.
 
 ### Local Installation
 Set your customized index.html file to be your homepage in your browser. 
@@ -19,7 +19,7 @@ Set your customized index.html file to be your homepage in your browser.
 Upload your customized STAERT files to your web host and set index.html to be your homepage.
 
 ### Dropbox Installation
-This is the way I use STAERT, and it assumes you've installed [Dropbox](https://www.dropbox.com/). Simply move your STAERT install to your dropbox folder and follow the instructions for "Local Installation". Whenever you add/remove favorites the changes are sync'd across all your devices.
+This is the way I use STAERT, and it assumes you've installed [Dropbox](https://www.dropbox.com/) on all the devices you use. Simply move your STAERT install to your dropbox folder and follow the instructions for "Local Installation". Whenever you add/remove favorites the changes are sync'd across all your devices.
 
 Tips
 ----
