@@ -1,44 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>ST&AElig;RT</title>
-<link id="favicon" rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="css/staert.css" />
-<script type="text/javascript" src="js/staert.js"></script>
+	<meta charset="UTF-8">
+	<title>ST&AElig;RT</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link id="favicon" rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link href="lib/bootstrap/bootstrap320/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-	<section id="favorites"></section>
+<body style="background: #f1f1f1;">
+	<div class="container-fluid">
+		<div id="favorites" class="row" style="padding: 20px 0 0 15px;"></div>
+	</div>
+	<script src="lib/jquery/jquery1111/jquery-1.11.1.min.js"></script>
+	<script src="lib/bootstrap/bootstrap320/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		var favorites = [ [
+		function staert(favsarray, identifier) {
+			var faviconSvc = "http://www.google.com/s2/favicons?domain="; // Or, http://g.etfv.co/http://
+			var view = "";
+			var numFavs = favsarray.length;
+			for (var i = 0; i < numFavs; i++) {
+				var theUrl = favsarray[i];
+				view += "<div class=\"col-xs-12 col-sm-6 col-md-3 col-lg-3 list-group\" role=\"group\">";
+				view += "<a href=\"http://" + theUrl + "\" title=\"" + theUrl + "\" target=\"_blank\" rel=\"external\" class=\"list-group-item\" role=\"link\">";
+				view += "<img src=\"" + faviconSvc + theUrl + "\" alt=\"Icon for " + theUrl + "\" width=\"16\" height=\"16\" role=\"img\">";
+				view += "&nbsp;" + theUrl;
+				view += "</a>";
+				view += "</div>";
+			}
+			document.getElementById(identifier).innerHTML = view;
+		}
+	</script>
+	<script type="text/javascript">
+		// Update this array with your quicklinks. Don't forget the comma to separate each link.
+		var favorites = [
 			"mail.live.com",
-			"mail.google.com",
+			"gmail.com",
 			"facebook.com",
 			"twitter.com",
 			"linkedin.com",
-			"reddit.com"
-		], [
+			"reddit.com",
 			"reader.aol.com",
 			"pinboard.in",
 			"delicious.com",
 			"myfitnesspal.com",
 			"weather.com",
-			"images.bing.com"
-		], [
+			"images.bing.com",
 			"github.com",
 			"evernote.com",
 			"drive.google.com",
-			"www.dropbox.com",
+			"reddit.com",
 			"amazon.com",
-			"maps.google.com"
-		], [
+			"maps.google.com",
 			"photobucket.com",
 			"www.pinterest.com",
 			"vimeo.com",
 			"pandora.com",
 			"soundcloud.com",
 			"epicurious.com"
-		] ];
+			];
 		staert(favorites, "favorites");
 	</script>
 </body>
