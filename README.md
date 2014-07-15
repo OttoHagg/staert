@@ -25,6 +25,7 @@ Tips
 ----
 * Firefox users can install the [New Tab Homepage](https://addons.mozilla.org/en-US/firefox/addon/new-tab-homepage/) extension to get STAERT on each new tab.
 * Chrome users can install the [New Tab Redirect](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna) extension to get STAERT on each new tab.
+* Safari users can tweak the homepage and new-tab behavior via the preferences dialog.
 
 Credits
 -------
