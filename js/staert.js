@@ -4,7 +4,24 @@ function getGlyphUrl(aUrl) {
 	// 
 	var faviconSvc = "http://www.google.com/s2/favicons?domain=";
 	//var faviconSvc = "http://g.etfv.co/http://";
-	return faviconSvc + aUrl;
+	return faviconSvc + stripProtocol(aUrl);
+}
+
+function stripProtocol(aUrl) {
+	var index = aUrl.search("://");
+	if(index > 0) {
+		return aUrl.substring(index + 3, aUrl.length);
+	}
+	return aUrl;
+	
+}
+
+function stripWWW(aUrl) {
+	var index = aUrl.search("www.");
+	if(index > 0) {
+		return aUrl.substring(index + 4, aUrl.length);
+	}
+	return aUrl;
 }
 
 function staert(favsarray, identifier) {
@@ -13,9 +30,9 @@ function staert(favsarray, identifier) {
 	for (var i = 0; i < numFavs; i++) {
 		var theUrl = favsarray[i];
 		view += "<div class=\"col-xs-12 col-sm-6 col-md-3 col-lg-3 list-group\" role=\"group\">";
-		view += "<a href=\"http://" + theUrl + "\" title=\"" + theUrl + "\" target=\"_blank\" rel=\"external\" class=\"list-group-item\" role=\"link\">";
+		view += "<a href=\"" + theUrl + "\" title=\"" + theUrl + "\" target=\"_blank\" rel=\"external\" class=\"list-group-item\" role=\"link\">";
 		view += "<img src=\"" + getGlyphUrl(theUrl) + "\" width=\"16\" height=\"16\" role=\"img\">";
-		view += "&nbsp;" + theUrl;
+		view += "&nbsp;" + stripProtocol( stripWWW( theUrl ) );
 		view += "</a>";
 		view += "</div>";
 	}
