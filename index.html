@@ -5,32 +5,27 @@
 	<title>ST&AElig;RT</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link id="favicon" rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link id="favicon" rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 	<link href="lib/bootstrap/bootstrap320/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/staert.css" rel="stylesheet">
 </head>
-<body style="background: #f1f1f1;">
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html"><img class="img-responsive pull-left" alt="STAERT logo" src="img/staert.png" />&nbsp;ST&AElig;RT</a>
+			</div>
+			<div class="nav navbar-nav navbar-right">
+				<p class="navbar-text">&nbsp;</p>
+			</div>
+		</div>
+	</nav>
 	<div class="container-fluid">
-		<div id="favorites" class="row" style="padding: 20px 0 0 15px;"></div>
+		<div id="favorites" class="row staertrow"></div>
 	</div>
-	<script src="lib/jquery/jquery1111/jquery-1.11.1.min.js"></script>
-	<script src="lib/bootstrap/bootstrap320/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		function staert(favsarray, identifier) {
-			var faviconSvc = "http://www.google.com/s2/favicons?domain="; // Or, http://g.etfv.co/http://
-			var view = "";
-			var numFavs = favsarray.length;
-			for (var i = 0; i < numFavs; i++) {
-				var theUrl = favsarray[i];
-				view += "<div class=\"col-xs-12 col-sm-6 col-md-3 col-lg-3 list-group\" role=\"group\">";
-				view += "<a href=\"http://" + theUrl + "\" title=\"" + theUrl + "\" target=\"_blank\" rel=\"external\" class=\"list-group-item\" role=\"link\">";
-				view += "<img src=\"" + faviconSvc + theUrl + "\" alt=\"Icon for " + theUrl + "\" width=\"16\" height=\"16\" role=\"img\">";
-				view += "&nbsp;" + theUrl;
-				view += "</a>";
-				view += "</div>";
-			}
-			document.getElementById(identifier).innerHTML = view;
-		}
-	</script>
+	<script type="text/javascript" src="lib/jquery/jquery1111/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/bootstrap320/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/staert.js"></script>
 	<script type="text/javascript">
 		// Update this array with your quicklinks. Don't forget the comma to separate each link.
 		var favorites = [
