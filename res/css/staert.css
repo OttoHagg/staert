@@ -1,0 +1,29 @@
+body{
+	background-color: #eee;
+}
+.navbar {
+	margin-bottom: 21px;
+}
+.staertrow{
+	padding: 0 15px 0 15px;
+}
+a.list-group-item:hover{
+	background-color: #ccffff;
+}
+.panel {
+	border:0;
+	margin-bottom: 1px;
+	box-shadow: 0px 0px 0px;
+}
+.panel-body {
+	background-color: #eee;
+	padding-bottom: 0;
+	padding-top: 18px;
+	border-bottom: 1px solid #fff;
+}
+.first{
+	padding-top: 0;
+}
+.last {
+	border:0;
+}

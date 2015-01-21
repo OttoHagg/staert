@@ -5,58 +5,29 @@
 	<title>ST&AElig;RT</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link id="favicon" rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-	<link href="lib/bootstrap/bootstrap320/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/staert.css" rel="stylesheet">
+	<link href="res/img/favicon.ico" id="favicon" rel="shortcut icon" type="image/x-icon" />
+	<link href="res/lib/bootstrap/bootstrap320/css/bootstrap.min.css" rel="stylesheet">
+	<link href="res/css/staert.css" rel="stylesheet">
 </head>
 <body>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html"><img class="img-responsive pull-left" alt="STAERT logo" src="img/staert.png" />&nbsp;ST&AElig;RT</a>
+				<a class="navbar-brand" href="index.html"><img class="img-responsive pull-left" alt="STAERT logo" src="res/img/staert.png" />&nbsp;ST&AElig;RT</a>
 			</div>
 			<div class="nav navbar-nav navbar-right">
-				<p class="navbar-text">&nbsp;</p>
+				<p class="navbar-text">&nbsp;</p> <!-- Reserved -->
 			</div>
 		</div>
 	</nav>
 	<div class="container-fluid">
 		<div id="favorites" class="row staertrow"></div>
 	</div>
-	<script type="text/javascript" src="lib/jquery/jquery1111/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="lib/bootstrap/bootstrap320/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/staert.js"></script>
+	<script type="text/javascript" src="res/lib/jquery/jquery1111/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="res/lib/bootstrap/bootstrap320/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="res/js/staert.js"></script>
+	<script type="text/javascript" src="favorites.js"></script>
 	<script type="text/javascript">
-	
-		// Update this array with your quicklinks. Try to 'https' instead of 'http'.
-		// Don't forget the comma to separate each link.
-		
-		var favorites = [
-			"https://mail.live.com",
-			"https://gmail.com",
-			"https://www.facebook.com",
-			"https://twitter.com",
-			"https://www.linkedin.com",
-			"https://www.reddit.com",
-			"https://reader.aol.com",
-			"https://www.pinboard.in",
-			"https://delicious.com",
-			"http://www.myfitnesspal.com",
-			"http://www.weather.com", /* Note some sites do not support HTTPS (SSL) */
-			"images.bing.com", /* Protocol isn't required */
-			"https://github.com",
-			"https://evernote.com",
-			"https://drive.google.com",
-			"https://www.reddit.com",
-			"http://www.amazon.com",
-			"https://maps.google.com",
-			"http://www.photobucket.com",
-			"https://www.pinterest.com",
-			"https://vimeo.com",
-			"http://www.pandora.com",
-			"https://soundcloud.com",
-			"http://www.epicurious.com" /* No comma needed after last link. */
-			];
 		staert(favorites, "favorites");
 	</script>
 </body>
