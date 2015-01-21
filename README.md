@@ -10,7 +10,7 @@ I wanted to create a very simple browser start page that was always in sync, acr
 
 Installation
 ------------
-[Download](https://github.com/OttoHagg/staert/archive/master.zip) and extract STAERT to some local directory. Using your favorite text editor, open index.html and edit the "favorites" JavaScript array.
+[Download](https://github.com/OttoHagg/staert/archive/master.zip) and extract STAERT to some local directory. Using your favorite text editor, open favorites.js and edit the "favorites" JavaScript array.
 
 ### Local Installation
 Set your customized index.html file to be your homepage in your browser. 
