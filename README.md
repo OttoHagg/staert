@@ -31,6 +31,15 @@ This is the way I use STAERT, and it assumes you've installed [Dropbox](https://
 ## Limitations
 STAERT uses a Google service to retrieve an icon for each of your favorites. Not every site provides an icon and, if there is an icon, it may not be easily found. In this scenario, Google returns a (rather boring) default icon.
 
+## Future
+I'm not sure where this is going. I want to keep STAERT as lightweight as possible, so I don't have plans to add new features much beyond what it is now. Having said that, I've thought about adding the following features:
+
+* URL shortener
+* Local weather forcast
+
+Let me know if you have any ideas or requests in the [Issues](https://github.com/OttoHagg/staert/issues).
+
+
 ## Credits
 * STAERT is somewhat inspired by [Launchbot](http://launchbot.michaelxander.com).
 * STAERT is responsive thanks to [Bootstrap](http://getbootstrap.com).
