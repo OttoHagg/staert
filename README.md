@@ -2,7 +2,7 @@ staert
 ======
 STAERT is a lightweight, cross-browser, self-hosted "start page" solution in the spirit of [MyFav.es](https://www.myfav.es/) or [Symbaloo](http://www.symbaloo.com/).
 
-![STAERT Screenshot](http://i1366.photobucket.com/albums/r778/sugonaut/Screenshots/staert2_zpse659bb30.png)
+![STAERT Screenshot](http://i1366.photobucket.com/albums/r778/sugonaut/Screenshots/STAEligRT_-_2016-06-24_11.18.44_zpsb95vl2xu.png)
 
 Motivation
 ----------
@@ -10,10 +10,10 @@ I wanted to create a very simple browser start page that was always in sync, acr
 
 Installation
 ------------
-[Download](https://github.com/OttoHagg/staert/archive/master.zip) and extract STAERT to some local directory. Using your favorite text editor, open favorites.js and edit the "favorites" JavaScript array.
+[Download](https://github.com/OttoHagg/staert/archive/master.zip) and extract STAERT to some local directory. Using your favorite text editor, open config.js and edit away.
 
 ### Local Installation
-Set your customized index.html file to be your homepage in your browser. 
+Set index.html file to be your homepage in your browser. 
 
 ### Web Host Installation
 Upload your customized STAERT files to your web host and set index.html to be your homepage.
@@ -29,5 +29,5 @@ Tips
 
 Credits
 -------
-* STAERT is loosely inspired by [Launchbot](http://launchbot.michaelxander.com/) and borrows a little code.
+* STAERT is loosely inspired by [Launchbot](https://github.com/michaelx/Launchbot) and borrows some concepts.
 * STAERT is responsive thanks to [Bootstrap](http://getbootstrap.com).

@@ -5,31 +5,126 @@
 	<title>ST&AElig;RT</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link href="res/img/favicon.ico" id="favicon" rel="shortcut icon" type="image/x-icon" />
-	<link href="res/lib/bootstrap/bootstrap320/css/bootstrap.min.css" rel="stylesheet">
-	<link href="res/css/staert.css" rel="stylesheet">
+	<link href="favicon.ico" id="favicon" rel="shortcut icon" type="image/x-icon">
+	<link href="lib/bootstrap/bootstrap336/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body{background-color: #E7E7E7;}
+	a.list-group-item {background-color: #FBFBFB;}
+	a.list-group-item:hover{background-color: #FFFFE6;}
+	#items {padding-top: 18px;padding-right: 0;}
+	.separator{border-top: 1px dashed #FBFBFB;}
+	</style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<div class="navbar navbar-default navbar-static-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html"><img class="img-responsive pull-left" alt="STAERT logo" src="res/img/staert.png" />&nbsp;ST&AElig;RT</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand"><img height="20" alt="STAERT logo" src="staert.png"></a>
 			</div>
-			<div class="nav navbar-nav navbar-right">
-				<p class="navbar-text">&nbsp;</p> <!-- Reserved -->
+			<div id="navbar-ex-collapse" class="collapse navbar-collapse">
+				<ul id="tabs" class="nav navbar-left navbar-nav"></ul>
+				<ul id="stickies" class="nav navbar-nav navbar-right"></ul>
 			</div>
 		</div>
-	</nav>
-	<div class="container-fluid">
-		<div id="favorites" class="row staertrow"></div>
 	</div>
-	<script type="text/javascript" src="res/lib/jquery/jquery1111/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="res/lib/bootstrap/bootstrap320/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="res/js/staert.js"></script>
-	<script type="text/javascript" src="favorites.js"></script>
-	<script type="text/javascript">
-		staert(favorites, "favorites");
-	</script>
+	<div id="items" class="container-fluid"></div>
+<script type="text/javascript" src="lib/jquery/jquery191/jquery.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap/bootstrap336/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript">
+function getGlyphUrl(aUrl) {
+	var faviconSvc = "http://www.google.com/s2/favicons?domain=";
+	return faviconSvc + stripProtocol(aUrl);
+}
+function hasProtocol(aUrl) {
+	var index = aUrl.search("://");
+	if(index >= 4) { return true; }
+	return false;
+}
+function stripProtocol(aUrl) {
+	var index = aUrl.search("://");
+	if(index > 0) { return aUrl.substring(index + 3, aUrl.length); }
+	return aUrl;
+}
+function getCurrentTab(defaultTab) {
+	var currentTab = localStorage.getItem("currentTab");
+	if(currentTab === null) {
+		currentTab = defaultTab;
+	}
+	return currentTab;
+}
+function parseFavorite(item) {
+	var arr = item.split("|");
+	var theTitle = arr[0];
+	var theUrl = arr[1];
+	if(! hasProtocol(theUrl)) { theUrl = "http://" + theUrl; }
+	var favorite = {};
+	favorite['theTitle'] = theTitle;
+	favorite['theUrl'] = theUrl;
+	return favorite;
+}
+function staert(current) {
+	localStorage.setItem("currentTab", current);
+	setStickies(config.stickies);
+	setTabs(config.tabs, current);
+}
+function setStickies(stickies) {
+	var html = '';
+	for(var i in stickies) {
+		var fav = parseFavorite(stickies[i]);
+		html += "<li>";
+		html += "<a href=\"" + fav.theUrl + "\" title=\"" + fav.theTitle + "\" target=\"_blank\" rel=\"external\" role=\"link\">";
+		html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" role=\"img\">";
+		html += "&nbsp;" + fav.theTitle;
+		html += "</a>";
+		html += "</li>";
+	}
+	document.getElementById("stickies").innerHTML = html;
+}
+function setTabs(tabs, current) {
+	var html = '';
+	for(var i in tabs) {
+		var label = tabs[i].label;
+		if(label == current) {
+			html += '<li class="active">';
+			setFavorites(tabs[i].items);
+		} else {
+			html += '<li>';
+		}
+		
+		html += '<a href="javascript:staert(\''+ label +'\');">';
+		html += label;
+		html += '</a>';
+		html += '</li>';
+	}
+	document.getElementById("tabs").innerHTML = html;
+}
+function setFavorites(favsarray) {
+	var html = "";
+	for(var j in favsarray) {
+		if(favsarray[j].startsWith("-")) {
+			html += "<div class=\"col-xs-12 list-group separator\"></div>";
+		} else {
+			var fav = parseFavorite(favsarray[j]);
+			html += "<div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-3 list-group\">";
+			html += "<a href=\"" + fav.theUrl + "\" title=\"" + fav.theTitle + "\" target=\"_blank\" rel=\"external\" class=\"list-group-item\" role=\"link\">";
+			html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" role=\"img\">";
+			html += "&nbsp;" + fav.theTitle;
+			html += "</a>";
+			html += "</div>";
+		}
+
+	}
+	document.getElementById("items").innerHTML = html;
+}
+staert(getCurrentTab(config.defaultTab));
+</script>
 </body>
 </html>
 
