@@ -13,10 +13,13 @@ var config =
 			[ /* Begin the list of favorites for this tab. */
 				"Feedly|https://feedly.com", /* Pay careful attention to how favorites are formatted. The convention is name|url. */
 				"AOL Reader|http://reader.aol.com",
-				"Digg Reader|http://digg.com/reader",
+				"Digg|http://digg.com",
+				"reddit|https://www.reddit.com",
+				"StumbleUpon|http://www.stumbleupon.com",
 				"---", /* A separator: you can create visual separation in each tab by adding one or more hyphens/dashes. */
 				"Google News|https://news.google.com",
-				"Yahoo! News|https://www.yahoo.com/news/", /* Note the comma after each item. */
+				"Yahoo! Sports|http://sports.yahoo.com", /* Note the comma after each item. */
+				"Hacker News|https://news.ycombinator.com",
 				"Slashdot|https://slashdot.org" /* Note there's no comma after the final item in each tab. */
 			]
 		}, /* Note the comma after each tab definition. */
@@ -42,7 +45,12 @@ var config =
 				"Amazon|https://smile.amazon.com",
 				"eBay|http://www.ebay.com/",
 				"Harbor Freight|http://www.harborfreight.com",
-				"Tractor Supply|http://www.tractorsupply.com/"
+				"ThinkGeek|http://www.thinkgeek.com",
+				"thisiswhyimbroke|https://www.thisiswhyimbroke.com",
+				"Firebox|https://www.firebox.com",
+				"Mental Floss Store|http://store.mentalfloss.com",
+				"NeatoShop|http://www.neatoshop.com",
+				"TakeMyMoney|http://shutupandtakemymoney.com"
 			]
 		},
 		{
@@ -50,7 +58,9 @@ var config =
 			items:
 			[
 				"Soma FM|https://somafm.com/",
+				"Spotify|https://www.spotify.com",
 				"Pandora|http://www.pandora.com/",
+				"SiriusXM Player|https://player.siriusxm.com",
 				"---",
 				"Youtube|https://www.youtube.com",
 				"Vimeo|https://vimeo.com"
