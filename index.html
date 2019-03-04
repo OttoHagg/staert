@@ -45,8 +45,13 @@ function stripProtocol(aUrl) {
 	return aUrl;
 }
 function getCurrentTab(defaultTab) {
-	var currentTab = localStorage.getItem("currentTab");
-	if(currentTab === null) {
+	var currentTab = null;
+	try {
+		currentTab = localStorage.getItem("currentTab");
+		if(currentTab === null) {
+			throw "Empty";
+		}
+	} catch(exception) {
 		currentTab = defaultTab;
 	}
 	return currentTab;
@@ -62,7 +67,9 @@ function parseFavorite(item) {
 	return favorite;
 }
 function staert(current) {
-	localStorage.setItem("currentTab", current);
+	try {
+		localStorage.setItem("currentTab", current);
+	} catch(exception) { /* noop */ }
 	setStickies(config.stickies);
 	setTabs(config.tabs, current);
 }
