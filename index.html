@@ -4,125 +4,25 @@
 	<meta charset="UTF-8">
 	<title>ST&AElig;RT</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link href="staert.png" id="favicon" rel="shortcut icon" type="image/x-icon">
-	<link href="lib/bootstrap/bootstrap336/css/bootstrap.min.css" rel="stylesheet">
-	<style type="text/css">
-	body{background-color: #E7E7E7;}
-	a.list-group-item {background-color: #FBFBFB;}
-	a.list-group-item:hover{background-color: #FFFFE6;}
-	#items {padding-top: 18px;padding-right: 0;}
-	.separator{border-top: 1px dashed #FBFBFB;}
-	</style>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+			integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+			crossorigin="anonymous">
+	<link rel="stylesheet" href="staert.css">
 </head>
 <body>
-	<div class="navbar navbar-default navbar-static-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand"><img height="20" alt="STAERT logo" src="staert.png"></a>
-			</div>
-			<div>
-				<ul id="tabs" class="nav navbar-left navbar-nav"></ul>
-				<ul id="stickies" class="nav navbar-nav navbar-right"></ul>
-			</div>
+	<header>
+		<div class="pure-menu pure-menu-horizontal">
+				<a class="pure-menu-heading"><img src="staert.png" width="20" height="20" alt="STAERT"></a>
+		    <ul id="tabs" class="pure-menu-list"></ul>
+				<ul id="stickies" class="pure-menu-list stickies-list"></ul>
 		</div>
-	</div>
-	<div id="items" class="container-fluid"></div>
-<script type="text/javascript" src="config.js"></script>
-<script type="text/javascript">
-function getGlyphUrl(aUrl) {
-	var faviconSvc = "http://www.google.com/s2/favicons?domain=";
-	return faviconSvc + stripProtocol(aUrl);
-}
-function hasProtocol(aUrl) {
-	var index = aUrl.search("://");
-	if(index >= 4) { return true; }
-	return false;
-}
-function stripProtocol(aUrl) {
-	var index = aUrl.search("://");
-	if(index > 0) { return aUrl.substring(index + 3, aUrl.length); }
-	return aUrl;
-}
-function getCurrentTab(defaultTab) {
-	var currentTab = null;
-	try {
-		currentTab = localStorage.getItem("currentTab");
-		if(currentTab === null) {
-			throw "Empty";
-		}
-	} catch(exception) {
-		currentTab = defaultTab;
-	}
-	return currentTab;
-}
-function parseFavorite(item) {
-	var arr = item.split("|");
-	var theTitle = arr[0];
-	var theUrl = arr[1];
-	if(! hasProtocol(theUrl)) { theUrl = "http://" + theUrl; }
-	var favorite = {};
-	favorite['theTitle'] = theTitle;
-	favorite['theUrl'] = theUrl;
-	return favorite;
-}
-function staert(current) {
-	try {
-		localStorage.setItem("currentTab", current);
-	} catch(exception) { /* noop */ }
-	setStickies(config.stickies);
-	setTabs(config.tabs, current);
-}
-function setStickies(stickies) {
-	var html = '';
-	for(var i in stickies) {
-		var fav = parseFavorite(stickies[i]);
-		html += "<li>";
-		html += "<a href=\"" + fav.theUrl + "\" title=\"" + fav.theTitle + "\" target=\"_blank\" rel=\"external\" role=\"link\">";
-		html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" role=\"img\">";
-		html += "&nbsp;" + fav.theTitle;
-		html += "</a>";
-		html += "</li>";
-	}
-	document.getElementById("stickies").innerHTML = html;
-}
-function setTabs(tabs, current) {
-	var html = '';
-	for(var i in tabs) {
-		var label = tabs[i].label;
-		if(label == current) {
-			html += '<li class="active">';
-			setFavorites(tabs[i].items);
-		} else {
-			html += '<li>';
-		}
-
-		html += '<a href="javascript:staert(\''+ label +'\');">';
-		html += label;
-		html += '</a>';
-		html += '</li>';
-	}
-	document.getElementById("tabs").innerHTML = html;
-}
-function setFavorites(favsarray) {
-	var html = "";
-	for(var j in favsarray) {
-		if(favsarray[j].startsWith("-")) {
-			html += "<div class=\"col-xs-12 list-group separator\"></div>";
-		} else {
-			var fav = parseFavorite(favsarray[j]);
-			html += "<div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-3 list-group\">";
-			html += "<a href=\"" + fav.theUrl + "\" title=\"" + fav.theTitle + "\" target=\"_blank\" rel=\"external\" class=\"list-group-item\" role=\"link\">";
-			html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" role=\"img\">";
-			html += "&nbsp;" + fav.theTitle;
-			html += "</a>";
-			html += "</div>";
-		}
-
-	}
-	document.getElementById("items").innerHTML = html;
-}
-staert(getCurrentTab(config.defaultTab));
-</script>
+	</header>
+	<main role="main">
+	  <div id="items" class="pure-g"></div>
+	</main>
+	<script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript" src="staert.js"></script>
+	<script type="text/javascript">staert(getCurrentTab(config.defaultTab));</script>
 </body>
 </html>

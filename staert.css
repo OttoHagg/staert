@@ -1,0 +1,36 @@
+/* https://purecss.io/ */
+
+body{background-color: #E7E7E7;}
+
+img{vertical-align: text-top;}
+
+header{background-color: #f8f8f8;}
+
+main{padding-top: 30px;}
+
+.pure-menu-item{line-height: 34px;}
+
+.pure-menu-link{height: 34px;}
+
+/* .pure-menu-link:hover{background-color: #f8f8f8;} */
+
+.pure-menu-selected{background-color: #E7E7E7;}
+
+.stickies-list{
+  float: right;
+}
+  
+a.favorite-link{
+  background-color: #FBFBFB;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  position: relative;
+  display: block;
+  border-radius: 5px;
+  margin: 10px;color: #555;
+  text-decoration: none;
+}
+
+a.favorite-link:hover{background-color: #FFFFE6;}
+
+.separator{border-top: 1px dashed #FBFBFB;}
