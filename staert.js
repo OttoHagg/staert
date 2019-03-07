@@ -73,10 +73,12 @@ function setTabs(tabs, current) {
 	document.getElementById("tabs").innerHTML = html;
 }
 function setFavorites(favsarray) {
-	var html = "";
+	var html = "<div class=\"pure-g\">";
 	for(var j in favsarray) {
 		if(favsarray[j].startsWith("-")) {
-			html += "<div class=\"pure-u-4-4 separator\"></div>";
+			html += "</div>";
+      html += "<div class=\"pure-u-4-4\"><hr class=\"separator\"/></div>";
+      html += "<div class=\"pure-g\">";
 		} else {
 			var fav = parseFavorite(favsarray[j]);
 			html += "<div class=\"pure-u-1-4 favorite\">";
@@ -85,8 +87,9 @@ function setFavorites(favsarray) {
 			html += "&nbsp;" + fav.theTitle;
 			html += "</a>";
 			html += "</div>";
+      
 		}
-
 	}
+  html += "</div>";
 	document.getElementById("items").innerHTML = html;
 }
