@@ -47,7 +47,7 @@ function setStickies(stickies) {
 		var fav = parseFavorite(stickies[i]);
 		html += "<li class=\"pure-menu-item\">";
 		html += "<a class=\"pure-menu-link\" href=\"" + fav.theUrl + "\" title=\"" + fav.theTitle + "\" target=\"_blank\" rel=\"external\" role=\"link\">";
-		html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" role=\"img\">";
+		html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" alt=\"Icon for " + fav.theUrl + "\">";
 		html += "&nbsp;" + fav.theTitle;
 		html += "</a>";
 		html += "</li>";
@@ -83,7 +83,7 @@ function setFavorites(favsarray) {
 			var fav = parseFavorite(favsarray[j]);
 			html += "<div class=\"pure-u-1-4 favorite\">";
 			html += "<a href=\"" + fav.theUrl + "\" title=\"" + fav.theTitle + "\" target=\"_blank\" rel=\"external\" class=\"favorite-link\" role=\"link\">";
-			html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" role=\"img\">";
+			html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" alt=\"Icon for " + fav.theUrl + "\">";
 			html += "&nbsp;" + fav.theTitle;
 			html += "</a>";
 			html += "</div>";
