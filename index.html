@@ -5,9 +5,7 @@
 	<title>ST&AElig;RT</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="staert.png" id="favicon" rel="shortcut icon" type="image/x-icon">
-	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
-			integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
-			crossorigin="anonymous">
+	<link rel="stylesheet" href="pure-min.css">
 	<link rel="stylesheet" href="staert.css">
 </head>
 <body>
@@ -15,10 +13,14 @@
 		<div class="pure-menu pure-menu-horizontal">
 				<a class="pure-menu-heading"><img src="staert.png" width="20" height="20" alt="STAERT"></a>
 		    <ul id="tabs" class="pure-menu-list"></ul>
-				<ul id="stickies" class="pure-menu-list stickies-list"></ul>
 		</div>
 	</header>
-	<main id="items" role="main"></main>
+	<main role="main">
+		<div id="favorites"></div>
+	</main>
+	<footer>
+		<div id="stickies"></div>
+	</footer>
 	<script type="text/javascript" src="config.js"></script>
 	<script type="text/javascript" src="staert.js"></script>
 	<script type="text/javascript">staert(getCurrentTab(config.defaultTab));</script>

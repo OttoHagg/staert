@@ -34,26 +34,6 @@ function parseFavorite(item) {
 	favorite['theUrl'] = theUrl;
 	return favorite;
 }
-function staert(current) {
-	try {
-		localStorage.setItem("currentTab", current);
-	} catch(exception) { /* noop */ }
-	setStickies(config.stickies);
-	setTabs(config.tabs, current);
-}
-function setStickies(stickies) {
-	var html = '';
-	for(var i in stickies) {
-		var fav = parseFavorite(stickies[i]);
-		html += "<li class=\"pure-menu-item\">";
-		html += "<a class=\"pure-menu-link\" href=\"" + fav.theUrl + "\" title=\"" + fav.theTitle + "\" target=\"_blank\" rel=\"external\" role=\"link\">";
-		html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" alt=\"Icon for " + fav.theUrl + "\">";
-		html += "&nbsp;" + fav.theTitle;
-		html += "</a>";
-		html += "</li>";
-	}
-	document.getElementById("stickies").innerHTML = html;
-}
 function setTabs(tabs, current) {
 	var html = '';
 	for(var i in tabs) {
@@ -64,7 +44,6 @@ function setTabs(tabs, current) {
 		} else {
 			html += '<li class="pure-menu-item">';
 		}
-
 		html += '<a class="pure-menu-link" href="javascript:staert(\''+ label +'\');">';
 		html += label;
 		html += '</a>';
@@ -72,24 +51,46 @@ function setTabs(tabs, current) {
 	}
 	document.getElementById("tabs").innerHTML = html;
 }
+function setStickies(stickies) {
+	if (typeof (stickies) !== "undefined") {
+		var html = '<ul id="stickies-list">';
+		for(var j in stickies) {
+				var fav = parseFavorite(stickies[j]);
+				html += '<li>';
+				html += '<a href="' + fav.theUrl + '" title="' + fav.theTitle + '" target="_blank" rel="external" role="link">';
+				html += '<img src="' + getGlyphUrl(fav.theUrl) + '" width="16" height="16" alt="Icon for ' + fav.theUrl + '" class="icon">';
+				html += fav.theTitle;
+				html += '</a>';
+				html += '</li>';
+		}
+	  html += '</ul>';
+		document.getElementById("stickies").innerHTML = html;
+	}
+}
 function setFavorites(favsarray) {
-	var html = "<div class=\"pure-g\">";
+	var html = '<div class="pure-g">';
 	for(var j in favsarray) {
-		if(favsarray[j].startsWith("-")) {
-			html += "</div>";
-      html += "<div class=\"pure-u-4-4\"><hr class=\"separator\"/></div>";
-      html += "<div class=\"pure-g\">";
+		if(favsarray[j].startsWith('-')) {
+			html += '</div>';
+      html += '<div class="pure-u-4-4"><hr class="separator"/></div>';
+      html += '<div class="pure-g">';
 		} else {
 			var fav = parseFavorite(favsarray[j]);
-			html += "<div class=\"pure-u-1-4 favorite\">";
-			html += "<a href=\"" + fav.theUrl + "\" title=\"" + fav.theTitle + "\" target=\"_blank\" rel=\"external\" class=\"favorite-link\" role=\"link\">";
-			html += "<img src=\"" + getGlyphUrl(fav.theUrl) + "\" width=\"16\" height=\"16\" alt=\"Icon for " + fav.theUrl + "\">";
-			html += "&nbsp;" + fav.theTitle;
-			html += "</a>";
-			html += "</div>";
-      
+			html += '<div class="pure-u-1-4 favorite">';
+			html += '<a href="' + fav.theUrl + '" title="' + fav.theTitle + '" target="_blank" rel="external" class="favorite-link" role="link">';
+			html += '<img src="' + getGlyphUrl(fav.theUrl) + '" width="16" height="16" alt="Icon for ' + fav.theUrl + '">';
+			html += fav.theTitle;
+			html += '</a>';
+			html += '</div>';
 		}
 	}
-  html += "</div>";
-	document.getElementById("items").innerHTML = html;
+  html += '</div>';
+	document.getElementById("favorites").innerHTML = html;
+}
+function staert(current) {
+	try {
+		localStorage.setItem("currentTab", current);
+	} catch(exception) { /* noop */ }
+	setStickies(config.stickies);
+	setTabs(config.tabs, current);
 }
