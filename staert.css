@@ -1,0 +1,19 @@
+html{position:relative;min-height:100%;}
+body{background-color:#e7e7e7;margin:0 0 50px;}
+img{vertical-align:text-top;}
+header{background-color:#f8f8f8;}
+main{padding-top:15px;}
+.pure-menu-item{line-height:34px;}
+.pure-menu-link{height:34px;}
+.pure-menu-selected{background-color:#e7e7e7;}
+a.favorite-link{background-color:#fbfbfb;border:1px solid #dddddd;padding:10px 15px;position:relative;display:block;border-radius:5px;margin:10px;color:#555555;text-decoration:none;}
+a.favorite-link:hover{background-color:#ffffe6;}
+a.favorite-link img{margin-right:3px;}
+.separator{border:0;border-bottom:1px dashed #fbfbfb;margin:10px;}
+.pure-menu-link:hover{background-color:transparent;color:#555555;}
+footer{position:fixed;left:0px;bottom:0px;height:50px;width:100%;background:#f8f8f8;}
+#stickies-list{display:inline;list-style:none;}
+#stickies-list li{display:inline;}
+#stickies-list li a{color:#555555;line-height:50px;margin-right:12px;text-decoration:none;}
+#stickies-list li a:hover{color:#000000;}
+.icon{margin-right:3px;}

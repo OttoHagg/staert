@@ -12,7 +12,6 @@ var config =
 			items:
 			[ /* Begin the list of favorites for this tab. */
 				"Feedly|https://feedly.com", /* Pay careful attention to how favorites are formatted. The convention is name|url. */
-				"AOL Reader|http://reader.aol.com",
 				"Digg|http://digg.com",
 				"reddit|https://www.reddit.com",
 				"StumbleUpon|http://www.stumbleupon.com",
